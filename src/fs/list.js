@@ -11,7 +11,7 @@ const list = async () => {
 
   opendir(dirPath, async (err) => {
     if (err) {
-      throw Error('FS Operation failed');
+      throw new Error('FS Operation failed');
     } else {
       const files = await readdir(dirPath);
       for (const file of files) {

@@ -1,5 +1,5 @@
 import os from 'node:os';
-import { Worker, setEnvironmentData, workerData } from 'node:worker_threads';
+import { Worker, setEnvironmentData } from 'node:worker_threads';
 import path from 'node:path';
 import { join } from 'node:path';
 import { fileURLToPath } from 'url';
@@ -23,7 +23,9 @@ const performCalculations = async () => {
   for (let i = 0; i < threadsNum; i++) {
     promisesArr.push(createWorker(i));
   }
-  Promise.all(promisesArr).then((data) => console.log(data)).catch((error) => console.error(error));
+  Promise.all(promisesArr)
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
 };
 
 await performCalculations();

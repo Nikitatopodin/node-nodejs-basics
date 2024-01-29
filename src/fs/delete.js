@@ -11,12 +11,11 @@ const filePath = path.join(__dirname, '/files', 'fileToRemove.txt');
 const remove = async () => {
   open(filePath, (err) => {
     if (err) {
-      throw Error('FS Operation failed');
+      throw new Error('FS Operation failed');
     } else {
-      rm(filePath)
+      rm(filePath);
     }
-  }
-  )
+  })
 };
 
 await remove();

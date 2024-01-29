@@ -10,9 +10,9 @@ const __dirname = path.dirname(__filename);
 
 const decompress = async () => {
   await pipeline(
-    createReadStream('files/archive.gz'),
+    createReadStream(join(__dirname, 'files/archive.gz')),
     createUnzip(),
-    createWriteStream('files/fileToCompress.txt'),
+    createWriteStream(join(__dirname, 'files/fileToCompress.txt')),
   );
 };
 

@@ -8,7 +8,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const read = async () => {
-  const readableStream = createReadStream(join(__dirname, '/files/fileToRead.txt'));
+  const filePath = join(__dirname, 'files', 'fileToRead.txt')
+  const readableStream = createReadStream(filePath);
+  setTimeout(() => {}, 100)
   readableStream.pipe(stdout);
 };
 

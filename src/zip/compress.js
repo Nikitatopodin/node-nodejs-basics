@@ -12,7 +12,7 @@ const compress = async () => {
   await pipeline(
     createReadStream(join(__dirname, 'files/fileToCompress.txt')),
     createGzip(),
-    createWriteStream('files/archive.gz'),
+    createWriteStream(join(__dirname, 'files/archive.gz')),
   );
 };
 

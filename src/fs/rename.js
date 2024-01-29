@@ -12,11 +12,11 @@ const rename = async () => {
   const newDirPath = join(__dirname, 'files/properFilename.md');
   open(dirPath, (err) => {
     if (err) {
-      throw Error('FS Operation failed');
+      throw new Error('FS Operation failed');
     } else {
       open(newDirPath, 'r', (err) => {
         if (!err) {
-          throw Error('FS Operation failed');
+          throw new Error('FS Operation failed');
         } else {
           Promsises.rename(dirPath, newDirPath);
         }
