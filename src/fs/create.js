@@ -10,12 +10,11 @@ const filePath = path.join(__dirname, '/files', 'fresh.txt');
 const create = async () => {
   open(filePath, (err) => {
     if (!err) {
-      throw Error('FS Operation failed');
+      throw new Error('FS Operation failed');
     } else {
       appendFile(filePath, 'I am fresh and young');
     }
-  }
-  )
+  })
 };
 
 await create();

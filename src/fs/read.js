@@ -10,7 +10,7 @@ const read = async () => {
   const filePath = path.join(__dirname, 'files/fileToRead.txt');
   open(filePath, async (err) => {
     if (err) {
-      throw Error('FS Operation failed');
+      throw new Error('FS Operation failed');
     } else {
       const content = await readFile(filePath, 'utf-8');
       console.log(content);
